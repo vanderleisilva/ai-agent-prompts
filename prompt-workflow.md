@@ -1,0 +1,7 @@
+| Task                      | Purpose                               | What you ask the agent to do                                      | Suggested model                                                                |
+| ------------------------- | ------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **Code generation**       | Produce working, boring code fast     | “Write the simplest correct implementation. No explanations.”     | **Fast / cheap model** (Cursor *Fast*, GPT-4o-mini, Claude Haiku)              |
+| **Senior code review**    | Surface hidden assumptions & smells   | “Review this as a senior engineer. Be critical and specific.”     | **Strongest reasoning model** (Cursor *Best*, GPT-4.1 / GPT-4o, Claude Sonnet) |
+| **Adversarial / breaker** | Imagine realistic failure scenarios   | “Assume this caused a prod incident. How did it fail?”            | **Strong reasoning model** (same as reviewer or one tier below)                |
+| **Test generation**       | Prove correctness & catch regressions | “Write minimal tests that would fail if this code is wrong.”      | **Strong but not max** (GPT-4o, Claude Sonnet)                                 |
+| **Confidence summary**    | Decide whether to trust / merge       | “Assign confidence level. List assumptions and rewrite triggers.” | **Strongest reasoning model** (same as reviewer)                               |
