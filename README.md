@@ -97,3 +97,7 @@ Use these prompts interactively:
 - **test-generation.md** - Prompt for writing minimal tests that catch failures and regressions
 - **confidence-summary.md** - Prompt for assigning confidence levels and risk assessment
 
+## License
+
+This project is licensed under the MIT License
+
