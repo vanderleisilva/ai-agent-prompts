@@ -65,16 +65,18 @@ Automate quality checks in your pipeline:
 
 Use these prompts interactively:
 
-1. Start with `code-generation.md` to write initial implementation
-2. Apply `code-review.md` for critical review
-3. Run `adversarial-breaker.md` to identify edge cases
-4. Use `test-generation.md` to create comprehensive tests
-5. Finish with `confidence-summary.md` for final assessment
+1. (Optional) Start with `brainstorming.md` to explore multiple approaches and trade-offs before implementation
+2. Use `code-generation.md` to write initial implementation
+3. Apply `code-review.md` for critical review
+4. Run `adversarial-breaker.md` to identify edge cases
+5. Use `test-generation.md` to create comprehensive tests
+6. Finish with `confidence-summary.md` for final assessment
 
 
 ## Contents
 
 - **prompt-workflow.md** - Guide for selecting the right AI model and prompt approach for different development tasks
+- **brainstorming.md** - Prompt for exploring multiple solution approaches, trade-offs, and architectural considerations
 - **code-generation.md** - Prompt for writing simple, straightforward production code
 - **code-review.md** - Automated code confidence pipeline prompt
 - **adversarial-breaker.md** - Prompt for identifying realistic failure scenarios in production code
