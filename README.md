@@ -20,6 +20,20 @@ Instead of relying on a single AI agent (or “auto” mode) to write and approv
 
 Each step acts as a confidence gate. Code is trusted not because the AI says it is correct, but because it has been reviewed, challenged, and proven through tests.
 
+## AI Code Confidence Pipeline — Task × Model Matrix
+
+| Task | Purpose | What the agent does | Suggested model |
+|-----|--------|---------------------|-----------------|
+| **Brainstorming / Ideation** | Explore solution space and trade-offs | Proposes multiple approaches, highlights pros/cons, surfaces key assumptions and architectural trade-offs. No code. | **Strong reasoning model** (GPT-4.1 / GPT-4o / Claude Sonnet) |
+| **Code generation** | Produce clear, minimal implementation | Writes the simplest correct implementation following conventions. No explanations, no tests, no self-approval. | **Fast / cheap model** (GPT-4o-mini, Claude Haiku, Cursor Fast) |
+| **Senior code review** | Surface risks and design smells | Critically reviews code for hidden assumptions, edge cases, maintainability, and production risks. | **Strongest reasoning model** (GPT-4.1 / Claude Sonnet / Cursor Best) |
+| **Adversarial / breaker** | Stress-test behavior | Actively tries to break the code by imagining realistic failure scenarios, misuse, scale, and concurrency issues. | **Strong reasoning model** (same as reviewer or one tier below) |
+| **Test generation** | Prove correctness and prevent regressions | Writes minimal, high-signal tests that fail if behavior is incorrect or regresses. | **Strong (not max)** (GPT-4o / Claude Sonnet) |
+| **Confidence summary** | Decide trust and merge readiness | Synthesizes all findings and assigns a confidence level (Low / Medium / High) with explicit assumptions and risks. | **Strongest reasoning model** (same as reviewer) |
+
+> **Principle:** Creation and judgment are always separated.  
+> Models are optimized for their role: fast models type code, strong models reason about risk.
+
 ## Usage
 
 These prompts can be used in various, bellow follows some ideas depending on your workflow and tooling:
