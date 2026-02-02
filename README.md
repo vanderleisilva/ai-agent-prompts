@@ -22,17 +22,19 @@ Each step acts as a confidence gate. Code is trusted not because the AI says it 
 
 ## AI Code Confidence Pipeline — Task × Model Matrix
 
-| Task | Purpose | What the agent does | Suggested model |
-|-----|--------|---------------------|-----------------|
-| **Brainstorming / Ideation** | Explore solution space and trade-offs | Proposes multiple approaches, highlights pros/cons, surfaces key assumptions and architectural trade-offs. No code. | **Strong reasoning model** (GPT-4.1 / GPT-4o / Claude Sonnet) |
-| **Code generation** | Produce clear, minimal implementation | Writes the simplest correct implementation following conventions. No explanations, no tests, no self-approval. | **Fast / cheap model** (GPT-4o-mini, Claude Haiku, Cursor Fast) |
-| **Senior code review** | Surface risks and design smells | Critically reviews code for hidden assumptions, edge cases, maintainability, and production risks. | **Strongest reasoning model** (GPT-4.1 / Claude Sonnet / Cursor Best) |
-| **Adversarial / breaker** | Stress-test behavior | Actively tries to break the code by imagining realistic failure scenarios, misuse, scale, and concurrency issues. | **Strong reasoning model** (same as reviewer or one tier below) |
-| **Test generation** | Prove correctness and prevent regressions | Writes minimal, high-signal tests that fail if behavior is incorrect or regresses. | **Strong (not max)** (GPT-4o / Claude Sonnet) |
-| **Confidence summary** | Decide trust and merge readiness | Synthesizes all findings and assigns a confidence level (Low / Medium / High) with explicit assumptions and risks. | **Strongest reasoning model** (same as reviewer) |
+| Task                         | Purpose                                   | What the agent does                                                                                                 | Suggested model                                                     |
+| ---------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| **Brainstorming / Ideation** | Explore solution space and trade-offs     | Proposes multiple approaches, highlights pros/cons, surfaces key assumptions and architectural trade-offs. No code. | **Strong reasoning model** (GPT-5 / Claude Sonnet)                  |
+| **Code generation**          | Produce clear, minimal implementation     | Writes the simplest correct implementation following conventions. No explanations, no tests, no self-approval.      | **Fast / cheap model** (GPT-4.5, Claude Haiku, Cursor Fast)         |
+| **Senior code review**       | Surface risks and design smells           | Critically reviews code for hidden assumptions, edge cases, maintainability, and production risks.                  | **Strongest reasoning model** (GPT-5 / Claude Sonnet / Cursor Best) |
+| **Adversarial / breaker**    | Stress-test behavior                      | Actively tries to break the code by imagining realistic failure scenarios, misuse, scale, and concurrency issues.   | **Strong reasoning model** (same as reviewer or one tier below)     |
+| **Test generation**          | Prove correctness and prevent regressions | Writes minimal, high-signal tests that fail if behavior is incorrect or regresses.                                  | **Strong (not max)** (GPT-5 / Claude Sonnet)                        |
+| **Confidence summary**       | Decide trust and merge readiness          | Synthesizes all findings and assigns a confidence level (Low / Medium / High) with explicit assumptions and risks.  | **Strongest reasoning model** (same as reviewer)                    |
 
 > **Principle:** Creation and judgment are always separated.  
 > Models are optimized for their role: fast models type code, strong models reason about risk.
+
+> "Cursor Fast" and "Cursor Best" are conceptual tiers—here's what to select in Cursor's model picker: **Cursor Best** (strongest reasoning) | **Cursor Fast** (fastest/cheapest)
 
 ## Usage
 
@@ -48,7 +50,6 @@ Create custom commands by storing these prompts in `.cursor/commands/` as Markdo
 2. Copy the prompt files and rename them as commands (e.g., `generate-code.md`, `review-code.md`)
 3. Commands will automatically appear when you type `/` in chat
 
-
 **Team Commands:**
 
 For Team and Enterprise plans, create commands in the [Cursor Dashboard](https://cursor.com/dashboard?tab=team-content&section=commands) to share standardized workflows across your organization.
@@ -56,7 +57,6 @@ For Team and Enterprise plans, create commands in the [Cursor Dashboard](https:/
 ### Cursor Rules
 
 Store these prompts as Project Rules in `.cursor/rules/` to guide AI behavior. Rules are version-controlled and can be scoped to specific files or applied intelligently. See the [Cursor Rules documentation](https://cursor.com/docs/context/rules) for details.
-
 
 **Team Rules:**
 
@@ -86,7 +86,6 @@ Use these prompts interactively:
 5. Use `test-generation.md` to create comprehensive tests
 6. Finish with `confidence-summary.md` for final assessment
 
-
 ## Contents
 
 - **prompt-workflow.md** - Guide for selecting the right AI model and prompt approach for different development tasks
@@ -100,4 +99,3 @@ Use these prompts interactively:
 ## License
 
 This project is licensed under the MIT License
-
