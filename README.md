@@ -85,6 +85,7 @@ Use these prompts interactively:
 4. Run `adversarial-breaker.md` to identify edge cases
 5. Use `test-generation.md` to create comprehensive tests
 6. Finish with `confidence-summary.md` for final assessment
+7. Apply `frontend-quality-gates.md` for frontend-specific merge gates (a11y, semantics, UX, performance, security)
 
 ## Contents
 
@@ -95,6 +96,7 @@ Use these prompts interactively:
 - **adversarial-breaker.md** - Prompt for identifying realistic failure scenarios in production code
 - **test-generation.md** - Prompt for writing minimal tests that catch failures and regressions
 - **confidence-summary.md** - Prompt for assigning confidence levels and risk assessment
+- **frontend-quality-gates.md** - Prompt for enforcing frontend quality gates (accessibility, semantics, responsiveness, performance, security, and testability)
 
 ## License
 
